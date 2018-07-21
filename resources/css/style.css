@@ -1,0 +1,217 @@
+html{
+  font-size: 18px;
+  font-family: Helvetica;
+
+}
+
+body{
+  line-height: 1.4;
+}
+
+.container{
+  max-width: 960px;
+  margin: auto;
+}
+
+.flex{
+  display: flex;  /* Shortcut to create flex items (new technique I wanna try)*/
+}
+
+h1{
+  font-size: 2rem;
+  line-height: 1.2;
+  font-weight: bold;
+}
+
+header{
+  background-image: url("../images/glasses-bg.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 30rem;
+  padding-top: 1rem;
+}
+
+nav{
+  display: flex;
+  align-items: center;
+  background-color: cadetblue;
+  color: white;
+  justify-content: space-between;
+  padding: 1rem 0;
+}
+
+nav div{
+  display: flex;
+  align-items: center;
+}
+
+nav img{
+  height: 1.5rem;
+  margin-right: 1rem;
+  margin-left: 2rem;
+}
+nav ul{
+  margin-right: 1rem;
+}
+
+nav li{
+  display: inline;
+  padding: 0 1rem;
+}
+nav a{
+  text-decoration: none;
+  color: white;
+}
+.mobile-nav{
+  display: none;  /* Disabled on large screen width */
+}
+
+header .flex{
+  justify-content: flex-end;
+}
+
+.look{
+  display: inline-block;
+  margin-top: 10rem;
+  margin-right: -2rem;  /*Read that I can use negative values with padding & margin. Assuming I can use flex-end properly. Fingers crossed */
+  background-color: white;
+  color: black;
+  padding: 1.5rem 5rem;
+}
+
+.flexcenter{
+  display: flex;
+  justify-content: center;
+}
+
+.servicebox{
+  width: 5rem;
+  height: 8rem;
+  margin: 3rem;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.servicebox img{
+  width: 5rem;
+  margin-bottom: 1rem;
+}
+
+.servicebox.paper img{
+  width: 3.5rem;
+}
+
+.detail{
+  width: 35%;
+  margin-right: 5%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 4rem; /*Had to remove my margin-top from footer and use margin-bottom here instead */
+}
+
+.detail .title{
+  background-color: cadetblue;
+  color: white;
+  font-weight: bold;
+  padding: 0.5rem 1.25rem;
+  max-width: 10rem;
+}
+
+.detail p{
+  padding: 1rem 0; /*Added this instead of margin bottom from .title */
+}
+
+footer{
+  display: flex;
+  align-items: center;
+  background-color: azure;
+  padding: 4rem 2rem;
+}
+
+footer img{
+  height: 1.5rem;
+  margin: 0 1rem 0 2rem;
+}
+
+/******** Media Queries ******/
+@media only screen and (max-width: 1024px){
+  header{
+    padding-top: 0;  /* Makes Nav Bar snap to top */
+    height: 22rem;
+  }
+
+  .look{
+    padding: 0.75rem 4rem;
+    margin-top: 5rem;
+    margin-right:2rem;
+  }
+  .look h1{
+    font-size: 1.33rem;
+  }
+  nav.container{
+    max-width: 100%;  /*Keeps size of nav 100% of container during resize */
+  }
+}
+
+
+@media only screen and (max-width: 700px){
+  .menu ul.mobile-nav{
+      display: block;
+    }
+    .menu ul{
+      display: none;
+    }
+}
+
+@media only screen and (max-width: 560px){
+  header div span {
+    display: none;
+  }
+  header{
+    background-position: 20%;
+    height: 17rem;
+  }
+  .look{
+    width: 100%;
+    margin: 9rem auto 0 auto;  /* Center banner while lowering banner 9rem */
+    padding: 1rem 0;
+  }
+  .look h1{
+    font-size: 1rem;
+    text-align: center;
+  }
+  .flexcenter{
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 3rem;
+  }
+  .servicebox{
+    margin: 0.77rem;  /* On redline it actually says '3.77rem', but that makes things too big */
+    font-size: .77rem;
+    height: auto;
+  }
+  .detail{
+    width: 100%;
+  }
+  .detail .title{
+    width: 100%;
+    max-width: none; /* Have to remove the max-width property element is inherting so element can be 100%*/
+    margin-right: 0;
+    text-align: center;
+  }
+  .detail p{
+    font-size: 0.77rem;
+    padding: 1rem; /*Added padding because text was too far left */
+  }
+  footer{
+    justify-content: center; /*Had to change this because icon would be pull-left */
+  }
+  footer div{
+    display: none;
+  }
+}
